@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First java program</title>
+    <link rel="stylesheet" href="java.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="newpage">
+            <div class="leftpage">
+                <div class="box">
+                    <div class="gol">
+                        <p> </p>
+                        <p></p>
+
+                    </div>
+                    <div class="card-number">OOOO OOOO OOOO OOOO</div>
+                    <div class="flexbox">
+                        <div class="flex">
+
+                            <div class="card-holder">full name</div>
+                        </div>
+                        <div class="flex">
+                            <div class="exp">
+                                <span class="month">month</span>/
+                                <span class="year">year</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="back">
+                    <div class="main">
+                        <div class="cvv">cvv</div>
+                    </div>
+                    <div class="bottom"></div>
+                    <div class="border">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="rightpage">
+                <form action="" class="form">
+                    <div class="card">
+                        <span>CARDHOLDER NAME</span>
+                        <input type="text" placeholder="card holder name" class="card-holder-input"></input>
+                    </div>
+                    <div class="card">
+                        <span>CARD NUMBER</span>
+                        <input type="text" maxlength="20" class="card-number-input" placeholder="formet - 0000 0000 0000 0000">
+                    </div>
+                    <div class="cardflex">
+                        <div class="mm">
+                            <span>exp.mm</span>
+                            <select name="" id="month" class="month-input">
+                                <option value="month" selected disabled> month</option>
+                               
+
+                            </select>
+                        </div>
+                        <div class="mm">
+                            <span>year</span>
+                            <select name="" id="month" class="year-input">
+                                <option value="year" selected disabled> YEAR</option>
+                               
+
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <span>CVV</span>
+                        <input type="text" maxlength="3" placeholder="cvv-input" class="cvv-input">
+                    </div>
+                    <div class="submit">
+                        <input type="submit" value="submit">
+                    </div>
+                </form>
+                <div class="click">
+                    <h1>thank you</h1>
+                    <h2>we've added your card detalils</h2>
+                    <div class="submit">
+                        <input type="submit" value="continue">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let cardnumber = document.querySelector(".card-number-input")
+        let cardholder = document.querySelector(".card-holder-input")
+        let month = document.querySelector(".month-input")
+        let year = document.querySelector(".year-input")
+        let cvv = document.querySelector(".cvv-input")
+        let submit = document.querySelector(".submit input")
+        let card = document.querySelector(".card-number")
+        let name = document.querySelector(".card-holder")
+        let cardmonth = document.querySelector(".month")
+        let cardyear = document.querySelector(".year")
+        let cardcvv = document.querySelector(".cvv")
+
+        let right = document.querySelector(".rightpage")
+
+
+        window.onload = function () {
+            for(let i=1;i<=12;i++){
+        let option = document.createElement("option");
+        let span = document.createElement("span");
+        if(i<10){
+          option.setAttribute("value", '0' + i)
+          span.innerHTML = '0' + i
+        }
+        else{
+          option.setAttribute("value", i)
+          span.innerHTML = i
+        }
+        option.appendChild(span)
+        month.appendChild(option)
+      }
+
+      for(let i=2032;i>=2000;i--){
+        let option = document.createElement("option");
+        let span = document.createElement("span");
+        option.setAttribute("value", i)
+        span.innerHTML = i
+
+        option.appendChild(span)
+        year.appendChild(option)
+      }
+        }
+        submit.onclick = function (e) {
+            e.preventDefault()
+
+
+            if (right.classList.contains("form")) {
+                right.classList.remove("form")
+            }
+
+            else {
+                let asd = right.children
+                asd[0].style.display = "none"
+                asd[1].style.display = "block"
+
+
+            }
+
+
+            card.innerHTML = cardnumber.value
+            name.innerHTML = cardholder.value
+            cardmonth.innerHTML = month.value
+            cardyear.innerHTML = year.value
+            cardcvv.innerHTML = cvv.value
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
